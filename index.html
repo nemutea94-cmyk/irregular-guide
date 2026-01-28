@@ -4,88 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>イレギュラー対応ナレッジ</title>
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       padding: 20px;
     }
+
+    h2 {
+      margin-bottom: 4px;
+    }
+
     input {
       width: 100%;
       padding: 12px;
       font-size: 16px;
-      margin-bottom: 16px;
+      margin: 16px 0;
     }
+
+    /* ▼ カテゴリ（大） */
+    details > summary {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 8px 0;
+      cursor: pointer;
+    }
+
+    /* ▼ イレギュラー（中） */
+    details details summary {
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* 枠デザイン */
     details {
       border: 1px solid #ccc;
       border-radius: 6px;
       padding: 10px;
       margin-bottom: 10px;
     }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
+
+    details details {
+      margin-top: 10px;
     }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
     .meta {
       font-size: 12px;
       color: #666;
-      margin-top: 20px;
+      margin-top: 24px;
     }
   </style>
 </head>
+
 <body>
 
 <h2>イレギュラー対応一覧</h2>
 <p>症状を入力して検索してください。</p>
 
-<input type="text" id="search" placeholder="例：点灯 / フリーズ / 音">
+<input type="text" id="search" placeholder="例：Wi-Fi / 電源 / 映らない">
 
-<!-- 事例① -->
-<details data-keywords="アクセサリ LED 点灯しない">
-  <summary>アクセサリLEDが点灯しない</summary>
-  <ul>
-    <li>【発生】複数店舗で発生</li>
-    <li>【対応①】アダプタ付きコンセントのスイッチの確認</li>
-    <li>【対応②】アクセサリーバーのケーブルがしっかり刺さっているかの確認</li>
-    <li>【対応③】コンセントが刺さっているかの確認</li>
-    <li>【対応④】SMPSが正常に接続されているか（配線が切れている可能性あり）
-      <img src="SMPSfile.png"
-           alt="SMPS"
-           style="width:100%; max-width:400px;">
-    </li>
-    <li>【ダメな場合】公式LINEに連絡ください</li>
-  </ul>
+<!-- 🔌 電気系 -->
+<details open>
+  <summary>🔌 電気系</summary>
+
+  <details data-keywords="アクセサリ LED 点灯しない 電源">
+    <summary>アクセサリLEDが点灯しない</summary>
+    <ul>
+      <li>【発生】複数店舗で発生</li>
+      <li>【対応①】アダプタ付きコンセントのスイッチ確認</li>
+      <li>【対応②】アクセサリーバーのケーブル確認</li>
+      <li>【対応③】コンセント確認</li>
+      <li>
+        【対応④】SMPS接続確認（断線の可能性）
+        <img src="SMPSfile.png" alt="SMPS">
+      </li>
+      <li>【ダメな場合】公式LINEに連絡</li>
+    </ul>
+  </details>
+
 </details>
 
-<!-- 事例② -->
-<details data-keywords="D-POP OTT Wi-Fi 接続">
-  <summary>D-POPネットワーク設定にてOTTのWi-Fiに接続ができない</summary>
-  <ul>
-    <li>【対応①】SSID、パスワードがあっているか確認</li>
-     <img src="dpopott.png"
-           alt="ott"
-           style="width:100%; max-width:400px;">
-    <li>【対応②】店舗にてOTTの用意がない場合があるため、店舗様に別のWi-Fiを聞き接続</li>
-    <li>【対応③】D-POPを再起動する
-    <li>【改善しない場合】公式LINEに連絡ください</li>
-  </ul>
-</details>
+<!-- 📡 通信系 -->
+<details>
+  <summary>📡 通信系</summary>
 
-<!-- 事例③ -->
-<details data-keywords="D-POP コンテンツ 動画 流れない">
-  <summary>D-POPのコンテンツ（動画）が流れない</summary>
-  <ul>
-    <li>【対応①】サーバーに接続されているか確認</li>
-    　<a href="dpopvxtikou.png">
-     <img src="dpopvxtikou.png"
-          style="width:100%; max-width:400px;">
-     </a>
-    <li>【対応②】正しい時刻に設定されているか確認</li>
-     <a href="zikokusettei.png">
-     <img src="zikokusettei.png"
-          style="width:100%; max-width:400px;">
+  <details data-keywords="D-POP OTT Wi-Fi 接続">
+    <summary>OTTのWi-Fiに接続できない</summary>
+    <ul>
+      <li>【対応①】SSID・パスワード確認</li>
+      <img src="dpopott.png" alt="OTT設定">
+      <li>【対応②】別のWi-Fiがあるか店舗に確認</li>
+      <li>【対応③】D-POP再起動</li>
+      <li>【改善しない場合】公式LINEに連絡</li>
+    </ul>
+  </details>
+
+  <details data-keywords="D-POP 動画 流れない コンテンツ">
+    <summary>D-POPの動画が流れない</summary>
+    <ul>
+      <li>【対応①】サーバー接続確認</li>
+      <a href="dpopvxtikou.png">
+        <img src="dpopvxtikou.png" alt="サーバー接続">
       </a>
-    <li>【必須】すぐ管理者へ連絡</li>
-  </ul>
+      <li>【対応②】時刻設定確認</li>
+      <a href="zikokusettei.png">
+        <img src="zikokusettei.png" alt="時刻設定">
+      </a>
+      <li>【必須】すぐ管理者へ連絡</li>
+    </ul>
+  </details>
+
 </details>
 
 <div class="meta">
@@ -100,15 +136,21 @@
     const value = search.value.toLowerCase();
 
     items.forEach(item => {
-      const keywords = item.dataset.keywords.toLowerCase();
+      const keywords = item.dataset.keywords || '';
       const text = item.innerText.toLowerCase();
 
-      if (keywords.includes(value) || text.includes(value)) {
+      if (keywords.toLowerCase().includes(value) || text.includes(value)) {
         item.style.display = '';
       } else {
         item.style.display = 'none';
       }
     });
+  });
+</script>
+
+</body>
+</html>
+
   });
 </script>
 
